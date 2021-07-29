@@ -316,6 +316,11 @@ THE SOFTWARE. */
           this.trigger('canplay');
           if (this.isSeeking) {
             this.onSeeked();
+
+            var localplayer = (this.player_) ? this.player_ : this.player;
+            if (!localplayer.seeking()){
+              this.trigger('pause');
+            }
           } else {
             this.trigger('pause');
           }
